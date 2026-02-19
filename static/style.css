@@ -1,0 +1,143 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    min-height: 100vh;
+    padding: 30px;
+    color: #333;
+}
+
+/* ===== TÍTULO PRINCIPAL ===== */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+/* ===== CONTAINER CENTRAL ===== */
+.home-container,
+.lista-container,
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== HOME ===== */
+.home-container {
+    text-align: center;
+}
+
+.home-container h2 {
+    margin-bottom: 10px;
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4e73df;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #2e59d9;
+}
+
+/* ===== FORMULÁRIO ===== */
+form p {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #4e73df;
+    outline: none;
+}
+
+/* ===== BOTÃO ===== */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1cc88a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #17a673;
+}
+
+/* ===== LISTA ===== */
+ul {
+    list-style: none;
+}
+
+li {
+    background: #f8f9fc;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Links Editar e Excluir */
+li a {
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #4e73df;
+    transition: 0.3s;
+}
+
+li a:hover {
+    color: #e74a3b;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .home-container,
+    .lista-container,
+    form {
+        padding: 15px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
