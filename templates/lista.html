@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST" action="{% if item_selecionado %}{{ url_for('update', idItem=item_selecionado.id_item) }}{% else %}{{ url_for('lista') }}{% endif %}">
+    <p>
+        <label for="titulo_item">Nome *</label><br>
+        <input type="text" id="titulo_item" name="titulo_item" required
+               value="{{ item_selecionado.titulo_item if item_selecionado else '' }}">
+    </p>
+
+    <p>
+        <label for="tipo_item">Tipo *</label><br>
+        <input type="text" id="tipo_item" name="tipo_item" required
+               value="{{ item_selecionado.tipo_item if item_selecionado else '' }}">
+    </p>
+
+    <p>
+        <label for="indicado_por">Indicado por (opcional)</label><br>
+        <input type="text" id="indicado_por" name="indicado_por"
+               value="{{ item_selecionado.indicado_por if item_selecionado else '' }}">
+    </p>
+
+    <p>
+        <button type="submit">
+            {% if item_selecionado %}
+                Atualizar
+            {% else %}
+                Adicionar
+            {% endif %}
+        </button>
+    </p>
+</form>
+
+<hr>
+
+<h3 style="text-align:center;">Itens na Lista</h3>
+
+<div class="lista-container">
+    {% if itens %}
+        <ul>
+            {% for item in itens %}
+                <li>
+                    <strong>{{ item.titulo_item }}</strong> ({{ item.tipo_item }})
+                    {% if item.indicado_por %}
+                        - Indicado por: {{ item.indicado_por }}
+                    {% endif %}
+                    [<a href="{{ url_for('update', idItem=item.id_item) }}">Editar</a>]
+                    [<a href="{{ url_for('delete', idItem=item.id_item) }}" onclick="return confirm('Confirma exclusão?');">Excluir</a>]
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum item cadastrado</p>
+    {% endif %}
+</div>
+
+{% endblock %}
